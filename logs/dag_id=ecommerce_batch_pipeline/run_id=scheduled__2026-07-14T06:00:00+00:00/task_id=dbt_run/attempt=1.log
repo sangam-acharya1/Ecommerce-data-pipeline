@@ -1,0 +1,52 @@
+[2026-07-16T05:24:54.419+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ecommerce_batch_pipeline.dbt_run scheduled__2026-07-14T06:00:00+00:00 [queued]>
+[2026-07-16T05:24:54.429+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ecommerce_batch_pipeline.dbt_run scheduled__2026-07-14T06:00:00+00:00 [queued]>
+[2026-07-16T05:24:54.429+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2026-07-16T05:24:54.445+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): dbt_run> on 2026-07-14 06:00:00+00:00
+[2026-07-16T05:24:54.454+0000] {standard_task_runner.py:60} INFO - Started process 3284 to run task
+[2026-07-16T05:24:54.458+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'ecommerce_batch_pipeline', 'dbt_run', 'scheduled__2026-07-14T06:00:00+00:00', '--job-id', '125', '--raw', '--subdir', 'DAGS_FOLDER/ecommerce_batch_dag.py', '--cfg-path', '/tmp/tmp54u_yudv']
+[2026-07-16T05:24:54.461+0000] {standard_task_runner.py:88} INFO - Job 125: Subtask dbt_run
+[2026-07-16T05:24:54.526+0000] {task_command.py:423} INFO - Running <TaskInstance: ecommerce_batch_pipeline.dbt_run scheduled__2026-07-14T06:00:00+00:00 [running]> on host 8cb5b5f8bf8d
+[2026-07-16T05:24:54.640+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='de-team' AIRFLOW_CTX_DAG_ID='ecommerce_batch_pipeline' AIRFLOW_CTX_TASK_ID='dbt_run' AIRFLOW_CTX_EXECUTION_DATE='2026-07-14T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-07-14T06:00:00+00:00'
+[2026-07-16T05:24:54.643+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-07-16T05:24:54.644+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '\n        cd /opt/***/dbt/ecommerce_data &&\n        dbt run --profiles-dir /opt/***/dbt --target dev\n        ']
+[2026-07-16T05:24:54.658+0000] {subprocess.py:86} INFO - Output:
+[2026-07-16T05:24:59.440+0000] {subprocess.py:93} INFO - [0m05:24:59  Running with dbt=1.7.18
+[2026-07-16T05:24:59.932+0000] {subprocess.py:93} INFO - [0m05:24:59  Registered adapter: duckdb=1.7.2
+[2026-07-16T05:25:00.170+0000] {subprocess.py:93} INFO - [0m05:25:00  Found 12 models, 35 tests, 3 sources, 0 exposures, 0 metrics, 391 macros, 0 groups, 0 semantic models
+[2026-07-16T05:25:00.179+0000] {subprocess.py:93} INFO - [0m05:25:00
+[2026-07-16T05:25:00.403+0000] {subprocess.py:93} INFO - [0m05:25:00  Concurrency: 4 threads (target='dev')
+[2026-07-16T05:25:00.404+0000] {subprocess.py:93} INFO - [0m05:25:00
+[2026-07-16T05:25:00.421+0000] {subprocess.py:93} INFO - [0m05:25:00  1 of 12 START sql view model main.stg_customer ................................. [RUN]
+[2026-07-16T05:25:00.424+0000] {subprocess.py:93} INFO - [0m05:25:00  2 of 12 START sql view model main.stg_order .................................... [RUN]
+[2026-07-16T05:25:00.425+0000] {subprocess.py:93} INFO - [0m05:25:00  3 of 12 START sql view model main.stg_seller ................................... [RUN]
+[2026-07-16T05:25:00.854+0000] {subprocess.py:93} INFO - [0m05:25:00  1 of 12 OK created sql view model main.stg_customer ............................ [[32mOK[0m in 0.43s]
+[2026-07-16T05:25:00.859+0000] {subprocess.py:93} INFO - [0m05:25:00  4 of 12 START sql view model main.int_customer_segmented ....................... [RUN]
+[2026-07-16T05:25:00.896+0000] {subprocess.py:93} INFO - [0m05:25:00  2 of 12 OK created sql view model main.stg_order ............................... [[32mOK[0m in 0.45s]
+[2026-07-16T05:25:00.906+0000] {subprocess.py:93} INFO - [0m05:25:00  3 of 12 OK created sql view model main.stg_seller .............................. [[32mOK[0m in 0.46s]
+[2026-07-16T05:25:00.916+0000] {subprocess.py:93} INFO - [0m05:25:00  5 of 12 START sql view model main.int_orders_with_status ....................... [RUN]
+[2026-07-16T05:25:00.932+0000] {subprocess.py:93} INFO - [0m05:25:00  6 of 12 START sql table model main.dim_seller .................................. [RUN]
+[2026-07-16T05:25:00.935+0000] {subprocess.py:93} INFO - [0m05:25:00  7 of 12 START sql view model main.int_seller ................................... [RUN]
+[2026-07-16T05:25:01.182+0000] {subprocess.py:93} INFO - [0m05:25:01  4 of 12 OK created sql view model main.int_customer_segmented .................. [[32mOK[0m in 0.31s]
+[2026-07-16T05:25:01.207+0000] {subprocess.py:93} INFO - [0m05:25:01  8 of 12 START sql table model main.dim_customers ............................... [RUN]
+[2026-07-16T05:25:01.286+0000] {subprocess.py:93} INFO - [0m05:25:01  5 of 12 OK created sql view model main.int_orders_with_status .................. [[32mOK[0m in 0.36s]
+[2026-07-16T05:25:01.288+0000] {subprocess.py:93} INFO - [0m05:25:01  6 of 12 OK created sql table model main.dim_seller ............................. [[32mOK[0m in 0.34s]
+[2026-07-16T05:25:01.338+0000] {subprocess.py:93} INFO - [0m05:25:01  7 of 12 OK created sql view model main.int_seller .............................. [[32mOK[0m in 0.38s]
+[2026-07-16T05:25:01.340+0000] {subprocess.py:93} INFO - [0m05:25:01  9 of 12 START sql table model main.fct_orders .................................. [RUN]
+[2026-07-16T05:25:01.646+0000] {subprocess.py:93} INFO - [0m05:25:01  8 of 12 OK created sql table model main.dim_customers .......................... [[32mOK[0m in 0.43s]
+[2026-07-16T05:25:02.344+0000] {subprocess.py:93} INFO - [0m05:25:02  9 of 12 OK created sql table model main.fct_orders ............................. [[32mOK[0m in 1.00s]
+[2026-07-16T05:25:02.349+0000] {subprocess.py:93} INFO - [0m05:25:02  10 of 12 START sql table model main.dim_product ................................ [RUN]
+[2026-07-16T05:25:02.359+0000] {subprocess.py:93} INFO - [0m05:25:02  11 of 12 START sql table model main.fct_daily_revenue .......................... [RUN]
+[2026-07-16T05:25:02.362+0000] {subprocess.py:93} INFO - [0m05:25:02  12 of 12 START sql table model main.fct_monthly_revenue ........................ [RUN]
+[2026-07-16T05:25:02.609+0000] {subprocess.py:93} INFO - [0m05:25:02  11 of 12 OK created sql table model main.fct_daily_revenue ..................... [[32mOK[0m in 0.24s]
+[2026-07-16T05:25:02.612+0000] {subprocess.py:93} INFO - [0m05:25:02  12 of 12 OK created sql table model main.fct_monthly_revenue ................... [[32mOK[0m in 0.24s]
+[2026-07-16T05:25:02.708+0000] {subprocess.py:93} INFO - [0m05:25:02  10 of 12 OK created sql table model main.dim_product ........................... [[32mOK[0m in 0.36s]
+[2026-07-16T05:25:02.745+0000] {subprocess.py:93} INFO - [0m05:25:02
+[2026-07-16T05:25:02.746+0000] {subprocess.py:93} INFO - [0m05:25:02  Finished running 6 view models, 6 table models in 0 hours 0 minutes and 2.57 seconds (2.57s).
+[2026-07-16T05:25:02.771+0000] {subprocess.py:93} INFO - [0m05:25:02
+[2026-07-16T05:25:02.772+0000] {subprocess.py:93} INFO - [0m05:25:02  [32mCompleted successfully[0m
+[2026-07-16T05:25:02.774+0000] {subprocess.py:93} INFO - [0m05:25:02
+[2026-07-16T05:25:02.774+0000] {subprocess.py:93} INFO - [0m05:25:02  Done. PASS=12 WARN=0 ERROR=0 SKIP=0 TOTAL=12
+[2026-07-16T05:25:04.952+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-07-16T05:25:04.990+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=ecommerce_batch_pipeline, task_id=dbt_run, execution_date=20260714T060000, start_date=20260716T052454, end_date=20260716T052504
+[2026-07-16T05:25:05.054+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-07-16T05:25:05.095+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

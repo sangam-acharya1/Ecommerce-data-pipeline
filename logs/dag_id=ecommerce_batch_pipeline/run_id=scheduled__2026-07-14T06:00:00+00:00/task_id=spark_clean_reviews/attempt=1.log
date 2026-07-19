@@ -1,0 +1,21 @@
+[2026-07-16T05:22:02.182+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ecommerce_batch_pipeline.spark_clean_reviews scheduled__2026-07-14T06:00:00+00:00 [queued]>
+[2026-07-16T05:22:02.198+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ecommerce_batch_pipeline.spark_clean_reviews scheduled__2026-07-14T06:00:00+00:00 [queued]>
+[2026-07-16T05:22:02.199+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2026-07-16T05:22:02.220+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): spark_clean_reviews> on 2026-07-14 06:00:00+00:00
+[2026-07-16T05:22:02.229+0000] {standard_task_runner.py:60} INFO - Started process 81 to run task
+[2026-07-16T05:22:02.234+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'ecommerce_batch_pipeline', 'spark_clean_reviews', 'scheduled__2026-07-14T06:00:00+00:00', '--job-id', '114', '--raw', '--subdir', 'DAGS_FOLDER/ecommerce_batch_dag.py', '--cfg-path', '/tmp/tmprxvm8nfk']
+[2026-07-16T05:22:02.239+0000] {standard_task_runner.py:88} INFO - Job 114: Subtask spark_clean_reviews
+[2026-07-16T05:22:02.348+0000] {task_command.py:423} INFO - Running <TaskInstance: ecommerce_batch_pipeline.spark_clean_reviews scheduled__2026-07-14T06:00:00+00:00 [running]> on host 8cb5b5f8bf8d
+[2026-07-16T05:22:02.539+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='de-team' AIRFLOW_CTX_DAG_ID='ecommerce_batch_pipeline' AIRFLOW_CTX_TASK_ID='spark_clean_reviews' AIRFLOW_CTX_EXECUTION_DATE='2026-07-14T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-07-14T06:00:00+00:00'
+[2026-07-16T05:22:02.543+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-07-16T05:22:02.544+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/spark/jobs/clean_reviews.py']
+[2026-07-16T05:22:02.581+0000] {subprocess.py:86} INFO - Output:
+[2026-07-16T05:22:07.190+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-07-16T05:22:07.191+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-07-16T05:22:07.501+0000] {subprocess.py:93} INFO - 26/07/16 05:22:07 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-07-16T05:22:09.257+0000] {subprocess.py:93} INFO - 26/07/16 05:22:09 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+[2026-07-16T05:22:30.673+0000] {subprocess.py:93} INFO - [Stage 0:>                                                          (0 + 1) / 1]                                                                                [Stage 1:>                                                          (0 + 4) / 4][Stage 1:==============>                                            (1 + 3) / 4]                                                                                [Stage 2:>                                                          (0 + 4) / 4][Stage 4:>                                                        (0 + 12) / 12]                                                                                [Stage 5:==============>                                            (1 + 3) / 4]                                                                                ✅ clean_reviews done — 100782 rows
+[2026-07-16T05:22:31.157+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-07-16T05:22:31.194+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=ecommerce_batch_pipeline, task_id=spark_clean_reviews, execution_date=20260714T060000, start_date=20260716T052202, end_date=20260716T052231
+[2026-07-16T05:22:31.261+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-07-16T05:22:31.290+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

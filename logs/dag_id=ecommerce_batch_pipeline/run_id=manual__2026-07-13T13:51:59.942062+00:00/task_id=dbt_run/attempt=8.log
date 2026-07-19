@@ -1,0 +1,63 @@
+[2026-07-14T05:54:51.817+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ecommerce_batch_pipeline.dbt_run manual__2026-07-13T13:51:59.942062+00:00 [queued]>
+[2026-07-14T05:54:51.823+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ecommerce_batch_pipeline.dbt_run manual__2026-07-13T13:51:59.942062+00:00 [queued]>
+[2026-07-14T05:54:51.823+0000] {taskinstance.py:2170} INFO - Starting attempt 8 of 8
+[2026-07-14T05:54:51.831+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): dbt_run> on 2026-07-13 13:51:59.942062+00:00
+[2026-07-14T05:54:51.836+0000] {standard_task_runner.py:60} INFO - Started process 251 to run task
+[2026-07-14T05:54:51.838+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'ecommerce_batch_pipeline', 'dbt_run', 'manual__2026-07-13T13:51:59.942062+00:00', '--job-id', '93', '--raw', '--subdir', 'DAGS_FOLDER/ecommerce_batch_dag.py', '--cfg-path', '/tmp/tmpdnfm03jk']
+[2026-07-14T05:54:51.840+0000] {standard_task_runner.py:88} INFO - Job 93: Subtask dbt_run
+[2026-07-14T05:54:51.878+0000] {task_command.py:423} INFO - Running <TaskInstance: ecommerce_batch_pipeline.dbt_run manual__2026-07-13T13:51:59.942062+00:00 [running]> on host 438c62ed51de
+[2026-07-14T05:54:51.922+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='de-team' AIRFLOW_CTX_DAG_ID='ecommerce_batch_pipeline' AIRFLOW_CTX_TASK_ID='dbt_run' AIRFLOW_CTX_EXECUTION_DATE='2026-07-13T13:51:59.942062+00:00' AIRFLOW_CTX_TRY_NUMBER='8' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-07-13T13:51:59.942062+00:00'
+[2026-07-14T05:54:51.923+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-07-14T05:54:51.924+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '\n        cd /opt/***/dbt/ecommerce_data &&\n        dbt run --profiles-dir /opt/***/dbt --target dev\n        ']
+[2026-07-14T05:54:51.931+0000] {subprocess.py:86} INFO - Output:
+[2026-07-14T05:54:53.570+0000] {subprocess.py:93} INFO - [0m05:54:53  Running with dbt=1.7.18
+[2026-07-14T05:54:53.762+0000] {subprocess.py:93} INFO - [0m05:54:53  Registered adapter: duckdb=1.7.2
+[2026-07-14T05:54:53.809+0000] {subprocess.py:93} INFO - [0m05:54:53  Found 12 models, 35 tests, 3 sources, 0 exposures, 0 metrics, 391 macros, 0 groups, 0 semantic models
+[2026-07-14T05:54:53.811+0000] {subprocess.py:93} INFO - [0m05:54:53
+[2026-07-14T05:54:53.900+0000] {subprocess.py:93} INFO - [0m05:54:53  Concurrency: 4 threads (target='dev')
+[2026-07-14T05:54:53.900+0000] {subprocess.py:93} INFO - [0m05:54:53
+[2026-07-14T05:54:53.908+0000] {subprocess.py:93} INFO - [0m05:54:53  1 of 12 START sql view model main.stg_customer ................................. [RUN]
+[2026-07-14T05:54:53.909+0000] {subprocess.py:93} INFO - [0m05:54:53  2 of 12 START sql view model main.stg_order .................................... [RUN]
+[2026-07-14T05:54:53.910+0000] {subprocess.py:93} INFO - [0m05:54:53  3 of 12 START sql view model main.stg_seller ................................... [RUN]
+[2026-07-14T05:54:54.019+0000] {subprocess.py:93} INFO - [0m05:54:54  2 of 12 ERROR creating sql view model main.stg_order ........................... [[31mERROR[0m in 0.11s]
+[2026-07-14T05:54:54.019+0000] {subprocess.py:93} INFO - [0m05:54:54  1 of 12 ERROR creating sql view model main.stg_customer ........................ [[31mERROR[0m in 0.11s]
+[2026-07-14T05:54:54.020+0000] {subprocess.py:93} INFO - [0m05:54:54  3 of 12 ERROR creating sql view model main.stg_seller .......................... [[31mERROR[0m in 0.10s]
+[2026-07-14T05:54:54.023+0000] {subprocess.py:93} INFO - [0m05:54:54  4 of 12 SKIP relation main.int_orders_with_status .............................. [[33mSKIP[0m]
+[2026-07-14T05:54:54.025+0000] {subprocess.py:93} INFO - [0m05:54:54  5 of 12 SKIP relation main.int_customer_segmented .............................. [[33mSKIP[0m]
+[2026-07-14T05:54:54.026+0000] {subprocess.py:93} INFO - [0m05:54:54  6 of 12 SKIP relation main.dim_seller .......................................... [[33mSKIP[0m]
+[2026-07-14T05:54:54.027+0000] {subprocess.py:93} INFO - [0m05:54:54  7 of 12 SKIP relation main.int_seller .......................................... [[33mSKIP[0m]
+[2026-07-14T05:54:54.030+0000] {subprocess.py:93} INFO - [0m05:54:54  8 of 12 SKIP relation main.fct_orders .......................................... [[33mSKIP[0m]
+[2026-07-14T05:54:54.031+0000] {subprocess.py:93} INFO - [0m05:54:54  9 of 12 SKIP relation main.dim_customers ....................................... [[33mSKIP[0m]
+[2026-07-14T05:54:54.033+0000] {subprocess.py:93} INFO - [0m05:54:54  10 of 12 SKIP relation main.dim_product ........................................ [[33mSKIP[0m]
+[2026-07-14T05:54:54.034+0000] {subprocess.py:93} INFO - [0m05:54:54  11 of 12 SKIP relation main.fct_daily_revenue .................................. [[33mSKIP[0m]
+[2026-07-14T05:54:54.035+0000] {subprocess.py:93} INFO - [0m05:54:54  12 of 12 SKIP relation main.fct_monthly_revenue ................................ [[33mSKIP[0m]
+[2026-07-14T05:54:54.047+0000] {subprocess.py:93} INFO - [0m05:54:54
+[2026-07-14T05:54:54.047+0000] {subprocess.py:93} INFO - [0m05:54:54  Finished running 6 view models, 6 table models in 0 hours 0 minutes and 0.24 seconds (0.24s).
+[2026-07-14T05:54:54.094+0000] {subprocess.py:93} INFO - [0m05:54:54
+[2026-07-14T05:54:54.095+0000] {subprocess.py:93} INFO - [0m05:54:54  [31mCompleted with 3 errors and 0 warnings:[0m
+[2026-07-14T05:54:54.095+0000] {subprocess.py:93} INFO - [0m05:54:54
+[2026-07-14T05:54:54.095+0000] {subprocess.py:93} INFO - [0m05:54:54    Runtime Error in model stg_order (models/staging/stg_order.sql)
+[2026-07-14T05:54:54.095+0000] {subprocess.py:93} INFO -   Catalog Error: Table with name orders_enriched does not exist!
+[2026-07-14T05:54:54.095+0000] {subprocess.py:93} INFO -   Did you mean "temp.pg_catalog.pg_depend"?
+[2026-07-14T05:54:54.095+0000] {subprocess.py:93} INFO - [0m05:54:54
+[2026-07-14T05:54:54.096+0000] {subprocess.py:93} INFO - [0m05:54:54    Runtime Error in model stg_customer (models/staging/stg_customer.sql)
+[2026-07-14T05:54:54.096+0000] {subprocess.py:93} INFO -   Catalog Error: Table with name customer_metrics does not exist!
+[2026-07-14T05:54:54.096+0000] {subprocess.py:93} INFO -   Did you mean "sqlite_master"?
+[2026-07-14T05:54:54.096+0000] {subprocess.py:93} INFO - [0m05:54:54
+[2026-07-14T05:54:54.097+0000] {subprocess.py:93} INFO - [0m05:54:54    Runtime Error in model stg_seller (models/staging/stg_seller.sql)
+[2026-07-14T05:54:54.097+0000] {subprocess.py:93} INFO -   Catalog Error: Table with name seller_metrics does not exist!
+[2026-07-14T05:54:54.097+0000] {subprocess.py:93} INFO -   Did you mean "sqlite_master"?
+[2026-07-14T05:54:54.098+0000] {subprocess.py:93} INFO - [0m05:54:54
+[2026-07-14T05:54:54.098+0000] {subprocess.py:93} INFO - [0m05:54:54  Done. PASS=0 WARN=0 ERROR=3 SKIP=9 TOTAL=12
+[2026-07-14T05:54:59.255+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-07-14T05:54:59.263+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 212, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-07-14T05:54:59.265+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=ecommerce_batch_pipeline, task_id=dbt_run, execution_date=20260713T135159, start_date=20260714T055451, end_date=20260714T055459
+[2026-07-14T05:54:59.276+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 93 for task dbt_run (Bash command failed. The command returned a non-zero exit code 1.; 251)
+[2026-07-14T05:54:59.291+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2026-07-14T05:54:59.305+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

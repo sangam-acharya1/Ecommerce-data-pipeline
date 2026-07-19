@@ -1,0 +1,4 @@
+{
+    "dbt.dbtPythonPathOverride": "/home/sangam/taxi_rides_ny/venv/bin/python3",
+    "dbt.perspectiveTheme": "Vintage"
+}

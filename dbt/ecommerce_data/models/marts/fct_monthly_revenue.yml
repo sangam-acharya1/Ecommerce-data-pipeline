@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: fct_monthly_revenue
+    description: "Monthly revenue aggregates with month over month growth"
+    columns:
+      - name: order_year
+        tests:
+          - not_null
+      - name: order_month
+        tests:
+          - not_null
+      - name: total_revenue
+      - name: total_orders
+        tests:
+          - not_null

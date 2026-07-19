@@ -1,0 +1,115 @@
+version: 2
+
+models:
+  - name: int_orders_with_status
+    description: >
+      Intermediate order model that enriches order records with delivery
+      status, revenue bands, order day classification, and first purchase
+      indicators for downstream analytics.
+
+    columns:
+      - name: order_id
+        description: Unique identifier for each order.
+        tests:
+          - not_null
+
+      - name: customer_id
+        description: Identifier of the customer who placed the order.
+
+      - name: seller_id
+        description: Identifier of the seller fulfilling the order.
+
+      - name: product_id
+        description: Identifier of the purchased product.
+
+      - name: order_status
+        description: Original order status.
+
+      - name: order_status_detailed
+        description: Detailed order status from the staging model.
+
+      - name: total_order_value
+        description: Total monetary value of the order.
+
+      - name: delivery_days
+        description: Number of days taken to deliver the order.
+
+      - name: is_late
+        description: Indicates whether the order was delivered after the estimated delivery date.
+
+      - name: payment_type
+        description: Payment method used for the order.
+
+      - name: payment_installments
+        description: Number of payment installments.
+
+      - name: payment_value
+        description: Total payment amount.
+
+      - name: product_category
+        description: Category of the purchased product.
+
+      - name: product_price
+        description: Price of the purchased product.
+
+      - name: freight_value
+        description: Freight charge for the order.
+
+      - name: customer_state
+        description: State where the customer is located.
+
+      - name: seller_state
+        description: State where the seller is located.
+
+      - name: order_date
+        description: Date the order was placed.
+
+      - name: order_year
+        description: Year the order was placed.
+
+      - name: order_month
+        description: Month the order was placed.
+
+      - name: order_day_of_week
+        description: Day of the week the order was placed.
+
+      - name: order_purchase_timestamp
+        description: Timestamp when the order was placed.
+
+      - name: order_delivered_customer_date
+        description: Timestamp when the order was delivered to the customer.
+
+      - name: order_estimated_delivery_date
+        description: Estimated delivery date for the order.
+
+      - name: delivery_status
+        description: Delivery performance classification for the order.
+        tests:
+          - accepted_values:
+              values:
+                - not_delivered
+                - unknown
+                - on_time
+                - slightly_late
+                - late
+                - very_late
+
+      - name: revenue_band
+        description: Revenue category based on the total order value.
+        tests:
+          - accepted_values:
+              values:
+                - low
+                - medium
+                - high
+
+      - name: order_day_type
+        description: Indicates whether the order was placed on a weekday or weekend.
+        tests:
+          - accepted_values:
+              values:
+                - weekday
+                - weekend
+
+      - name: is_first_purchase
+        description: Indicates whether the order is the customer's first purchase.

@@ -1,0 +1,29 @@
+airflow-init-1  | The container is run as root user. For security, consider using a regular user account.
+airflow-init-1  | 
+airflow-init-1  | DB: postgresql+psycopg2://airflow:***@postgres/airflow
+airflow-init-1  | Performing upgrade to the metadata database postgresql+psycopg2://airflow:***@postgres/airflow
+airflow-init-1  | [[34m2026-07-12T11:00:07.662+0000[0m] {[34mmigration.py:[0m216} INFO[0m - Context impl PostgresqlImpl.[0m
+airflow-init-1  | [[34m2026-07-12T11:00:07.663+0000[0m] {[34mmigration.py:[0m219} INFO[0m - Will assume transactional DDL.[0m
+airflow-init-1  | [[34m2026-07-12T11:00:07.669+0000[0m] {[34mdb.py:[0m1616} INFO[0m - Creating tables[0m
+airflow-init-1  | INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
+airflow-init-1  | INFO  [alembic.runtime.migration] Will assume transactional DDL.
+airflow-init-1  | Database migrating done!
+airflow-init-1  | /home/airflow/.local/lib/python3.8/site-packages/flask_limiter/extension.py:336 UserWarning: Using the in-memory storage for tracking rate limits as no storage was explicitly specified. This is not recommended for production use. See: https://flask-limiter.readthedocs.io#configuring-a-storage-backend for documentation about configuring the storage backend.
+airflow-init-1  | airflow already exist in the db
+airflow-init-1  | 
+airflow-init-1  | !!!!!  Installing additional requirements: 'pyspark' !!!!!!!!!!!!
+airflow-init-1  | 
+airflow-init-1  | WARNING: This is a development/test feature only. NEVER use it in production!
+airflow-init-1  |          Instead, build a custom image as described in
+airflow-init-1  | 
+airflow-init-1  |          https://airflow.apache.org/docs/docker-stack/build.html
+airflow-init-1  | 
+airflow-init-1  |          Adding requirements at container startup is fragile and is done every time
+airflow-init-1  |          the container starts, so it is only useful for testing and trying out
+airflow-init-1  |          of adding dependencies.
+airflow-init-1  | 
+airflow-init-1  | 
+airflow-init-1  | [31mYou are running pip as root. Please use 'airflow' user to run pip![0m
+airflow-init-1  | 
+airflow-init-1  | [33mSee: https://airflow.apache.org/docs/docker-stack/build.html#adding-a-new-pypi-package[0m
+airflow-init-1  | 

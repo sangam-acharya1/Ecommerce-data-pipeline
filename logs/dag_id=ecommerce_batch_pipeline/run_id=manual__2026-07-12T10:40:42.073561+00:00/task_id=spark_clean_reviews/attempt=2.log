@@ -1,0 +1,28 @@
+[2026-07-12T10:45:50.315+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ecommerce_batch_pipeline.spark_clean_reviews manual__2026-07-12T10:40:42.073561+00:00 [queued]>
+[2026-07-12T10:45:50.330+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ecommerce_batch_pipeline.spark_clean_reviews manual__2026-07-12T10:40:42.073561+00:00 [queued]>
+[2026-07-12T10:45:50.331+0000] {taskinstance.py:2170} INFO - Starting attempt 2 of 2
+[2026-07-12T10:45:50.356+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): spark_clean_reviews> on 2026-07-12 10:40:42.073561+00:00
+[2026-07-12T10:45:50.365+0000] {standard_task_runner.py:60} INFO - Started process 284 to run task
+[2026-07-12T10:45:50.377+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'ecommerce_batch_pipeline', 'spark_clean_reviews', 'manual__2026-07-12T10:40:42.073561+00:00', '--job-id', '38', '--raw', '--subdir', 'DAGS_FOLDER/ecommerce_batch_dag.py', '--cfg-path', '/tmp/tmpd4wlxppd']
+[2026-07-12T10:45:50.382+0000] {standard_task_runner.py:88} INFO - Job 38: Subtask spark_clean_reviews
+[2026-07-12T10:45:50.501+0000] {task_command.py:423} INFO - Running <TaskInstance: ecommerce_batch_pipeline.spark_clean_reviews manual__2026-07-12T10:40:42.073561+00:00 [running]> on host b33cd6d57ec3
+[2026-07-12T10:45:50.655+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='de-team' AIRFLOW_CTX_DAG_ID='ecommerce_batch_pipeline' AIRFLOW_CTX_TASK_ID='spark_clean_reviews' AIRFLOW_CTX_EXECUTION_DATE='2026-07-12T10:40:42.073561+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-07-12T10:40:42.073561+00:00'
+[2026-07-12T10:45:50.658+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-07-12T10:45:50.659+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/spark/jobs/clean_reviews.py']
+[2026-07-12T10:45:50.682+0000] {subprocess.py:86} INFO - Output:
+[2026-07-12T10:45:50.732+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2026-07-12T10:45:50.735+0000] {subprocess.py:93} INFO -   File "/opt/***/spark/jobs/clean_reviews.py", line 1, in <module>
+[2026-07-12T10:45:50.736+0000] {subprocess.py:93} INFO -     from pyspark.sql import SparkSession
+[2026-07-12T10:45:50.736+0000] {subprocess.py:93} INFO - ModuleNotFoundError: No module named 'pyspark'
+[2026-07-12T10:45:50.740+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-07-12T10:45:50.755+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 212, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-07-12T10:45:50.759+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=ecommerce_batch_pipeline, task_id=spark_clean_reviews, execution_date=20260712T104042, start_date=20260712T104550, end_date=20260712T104550
+[2026-07-12T10:45:50.779+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 38 for task spark_clean_reviews (Bash command failed. The command returned a non-zero exit code 1.; 284)
+[2026-07-12T10:45:50.798+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2026-07-12T10:45:50.879+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

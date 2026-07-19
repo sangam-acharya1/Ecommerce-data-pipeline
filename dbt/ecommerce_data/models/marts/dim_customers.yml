@@ -1,0 +1,83 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: >
+      Customer dimension table containing customer purchasing behavior,
+      spending patterns, recency segmentation, and overall customer value
+      classification.
+
+    columns:
+      - name: customer_unique_id
+        description: Unique identifier for each customer.
+        tests:
+          - not_null
+          - unique
+
+      - name: total_orders
+        description: Total number of orders placed by the customer.
+
+      - name: total_spent
+        description: Total amount spent by the customer across all orders.
+
+      - name: avg_order_value
+        description: Average value of the customer's orders.
+
+      - name: first_order_date
+        description: Date of the customer's first purchase.
+
+      - name: last_order_date
+        description: Date of the customer's most recent purchase.
+
+      - name: customer_age_days
+        description: Number of days since the customer's first purchase.
+
+      - name: stg_customer_segment
+        description: Customer segment inherited from the intermediate staging model.
+
+      - name: customer_segment
+        description: >
+          Customer classification based on total number of orders placed.
+        tests:
+          - accepted_values:
+              values:
+                - new
+                - repeated
+                - loyal
+                - unknown
+
+      - name: spending_segment
+        description: >
+          Spending classification based on the customer's total spending.
+        tests:
+          - accepted_values:
+              values:
+                - low
+                - medium
+                - high
+                - unknown
+
+      - name: recency_segment
+        description: >
+          Customer activity classification based on the number of days since
+          the last purchase.
+        tests:
+          - accepted_values:
+              values:
+                - active
+                - warm
+                - cooling
+                - churned
+                - unknown
+
+      - name: customer_value_tier
+        description: >
+          Overall customer value tier derived from customer loyalty,
+          spending behavior, and purchase recency.
+        tests:
+          - accepted_values:
+              values:
+                - champion
+                - potential
+                - at_risk
+                - unknown

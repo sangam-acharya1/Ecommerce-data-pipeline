@@ -1,0 +1,82 @@
+[2026-07-14T06:01:29.689+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ecommerce_batch_pipeline.dbt_run scheduled__2026-07-13T06:00:00+00:00 [queued]>
+[2026-07-14T06:01:29.696+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ecommerce_batch_pipeline.dbt_run scheduled__2026-07-13T06:00:00+00:00 [queued]>
+[2026-07-14T06:01:29.696+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2026-07-14T06:01:29.704+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): dbt_run> on 2026-07-13 06:00:00+00:00
+[2026-07-14T06:01:29.709+0000] {standard_task_runner.py:60} INFO - Started process 3631 to run task
+[2026-07-14T06:01:29.711+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'ecommerce_batch_pipeline', 'dbt_run', 'scheduled__2026-07-13T06:00:00+00:00', '--job-id', '107', '--raw', '--subdir', 'DAGS_FOLDER/ecommerce_batch_dag.py', '--cfg-path', '/tmp/tmpqm31qanh']
+[2026-07-14T06:01:29.713+0000] {standard_task_runner.py:88} INFO - Job 107: Subtask dbt_run
+[2026-07-14T06:01:29.752+0000] {task_command.py:423} INFO - Running <TaskInstance: ecommerce_batch_pipeline.dbt_run scheduled__2026-07-13T06:00:00+00:00 [running]> on host 438c62ed51de
+[2026-07-14T06:01:29.800+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='de-team' AIRFLOW_CTX_DAG_ID='ecommerce_batch_pipeline' AIRFLOW_CTX_TASK_ID='dbt_run' AIRFLOW_CTX_EXECUTION_DATE='2026-07-13T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-07-13T06:00:00+00:00'
+[2026-07-14T06:01:29.802+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-07-14T06:01:29.802+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '\n        cd /opt/***/dbt/ecommerce_data &&\n        dbt run --profiles-dir /opt/***/dbt --target dev\n        ']
+[2026-07-14T06:01:29.812+0000] {subprocess.py:86} INFO - Output:
+[2026-07-14T06:01:31.861+0000] {subprocess.py:93} INFO - [0m06:01:31  Running with dbt=1.7.18
+[2026-07-14T06:01:32.097+0000] {subprocess.py:93} INFO - [0m06:01:32  Registered adapter: duckdb=1.7.2
+[2026-07-14T06:01:32.116+0000] {subprocess.py:93} INFO - [0m06:01:32  Unable to do partial parsing because of a version mismatch
+[2026-07-14T06:01:33.143+0000] {subprocess.py:93} INFO - [0m06:01:33  [[33mWARNING[0m]: Did not find matching node for patch with name 'stg_orders' in the 'models' section of file 'models/staging/stg_order.yml'
+[2026-07-14T06:01:33.173+0000] {subprocess.py:93} INFO - [0m06:01:33  [[33mWARNING[0m]: Did not find matching node for patch with name 'stg_customer_metrics' in the 'models' section of file 'models/staging/stg_customer.yml'
+[2026-07-14T06:01:33.184+0000] {subprocess.py:93} INFO - [0m06:01:33  [[33mWARNING[0m]: Did not find matching node for patch with name 'stg_seller_metrics' in the 'models' section of file 'models/staging/stg_seller.yml'
+[2026-07-14T06:01:33.196+0000] {subprocess.py:93} INFO - [0m06:01:33  [[33mWARNING[0m]: Test 'test.ecommerce_data.unique_stg_orders_order_id.e3b841c71a' (models/staging/stg_order.yml) depends on a node named 'stg_orders' in package '' which was not found
+[2026-07-14T06:01:33.197+0000] {subprocess.py:93} INFO - [0m06:01:33  [[33mWARNING[0m]: Test 'test.ecommerce_data.not_null_stg_orders_order_id.81cfe2fe64' (models/staging/stg_order.yml) depends on a node named 'stg_orders' in package '' which was not found
+[2026-07-14T06:01:33.197+0000] {subprocess.py:93} INFO - [0m06:01:33  [[33mWARNING[0m]: Test 'test.ecommerce_data.not_null_stg_orders_customer_id.af79d5e4b5' (models/staging/stg_order.yml) depends on a node named 'stg_orders' in package '' which was not found
+[2026-07-14T06:01:33.198+0000] {subprocess.py:93} INFO - [0m06:01:33  [[33mWARNING[0m]: Test 'test.ecommerce_data.not_null_stg_orders_order_status.d7fcf15f79' (models/staging/stg_order.yml) depends on a node named 'stg_orders' in package '' which was not found
+[2026-07-14T06:01:33.198+0000] {subprocess.py:93} INFO - [0m06:01:33  [[33mWARNING[0m]: Test 'test.ecommerce_data.accepted_values_stg_orders_order_status__delivered__shipped__canceled__invoiced__processing__unavailable__created__approved.067235966f' (models/staging/stg_order.yml) depends on a node named 'stg_orders' in package '' which was not found
+[2026-07-14T06:01:33.198+0000] {subprocess.py:93} INFO - [0m06:01:33  [[33mWARNING[0m]: Test 'test.ecommerce_data.accepted_values_stg_orders_order_status_detailed__delivered_on_time__delivered_late__canceled__shipped__processing__invoiced__unavailable__created__approved.0a514494c9' (models/staging/stg_order.yml) depends on a node named 'stg_orders' in package '' which was not found
+[2026-07-14T06:01:33.199+0000] {subprocess.py:93} INFO - [0m06:01:33  [[33mWARNING[0m]: Test 'test.ecommerce_data.accepted_values_stg_orders_revenue_band__low__medium__high.83769016a3' (models/staging/stg_order.yml) depends on a node named 'stg_orders' in package '' which was not found
+[2026-07-14T06:01:33.199+0000] {subprocess.py:93} INFO - [0m06:01:33  [[33mWARNING[0m]: Test 'test.ecommerce_data.not_null_stg_orders_total_order_value.f22cfb6819' (models/staging/stg_order.yml) depends on a node named 'stg_orders' in package '' which was not found
+[2026-07-14T06:01:33.200+0000] {subprocess.py:93} INFO - [0m06:01:33  [[33mWARNING[0m]: Test 'test.ecommerce_data.not_null_stg_orders_order_date.2177a3e8bb' (models/staging/stg_order.yml) depends on a node named 'stg_orders' in package '' which was not found
+[2026-07-14T06:01:33.200+0000] {subprocess.py:93} INFO - [0m06:01:33  [[33mWARNING[0m]: Test 'test.ecommerce_data.unique_stg_customer_metrics_customer_id.dbedf5ad92' (models/staging/stg_customer.yml) depends on a node named 'stg_customer_metrics' in package '' which was not found
+[2026-07-14T06:01:33.200+0000] {subprocess.py:93} INFO - [0m06:01:33  [[33mWARNING[0m]: Test 'test.ecommerce_data.not_null_stg_customer_metrics_customer_id.0491141225' (models/staging/stg_customer.yml) depends on a node named 'stg_customer_metrics' in package '' which was not found
+[2026-07-14T06:01:33.201+0000] {subprocess.py:93} INFO - [0m06:01:33  [[33mWARNING[0m]: Test 'test.ecommerce_data.accepted_values_stg_customer_metrics_customer_segment__new__repeat__loyal.34a112d81e' (models/staging/stg_customer.yml) depends on a node named 'stg_customer_metrics' in package '' which was not found
+[2026-07-14T06:01:33.201+0000] {subprocess.py:93} INFO - [0m06:01:33  [[33mWARNING[0m]: Test 'test.ecommerce_data.not_null_stg_customer_metrics_total_orders.d8348f0494' (models/staging/stg_customer.yml) depends on a node named 'stg_customer_metrics' in package '' which was not found
+[2026-07-14T06:01:33.201+0000] {subprocess.py:93} INFO - [0m06:01:33  [[33mWARNING[0m]: Test 'test.ecommerce_data.unique_stg_seller_metrics_seller_id.783adc984e' (models/staging/stg_seller.yml) depends on a node named 'stg_seller_metrics' in package '' which was not found
+[2026-07-14T06:01:33.202+0000] {subprocess.py:93} INFO - [0m06:01:33  [[33mWARNING[0m]: Test 'test.ecommerce_data.not_null_stg_seller_metrics_seller_id.cb0c016063' (models/staging/stg_seller.yml) depends on a node named 'stg_seller_metrics' in package '' which was not found
+[2026-07-14T06:01:33.202+0000] {subprocess.py:93} INFO - [0m06:01:33  [[33mWARNING[0m]: Test 'test.ecommerce_data.accepted_values_stg_seller_metrics_seller_health__good__average__at_risk.036860969f' (models/staging/stg_seller.yml) depends on a node named 'stg_seller_metrics' in package '' which was not found
+[2026-07-14T06:01:33.252+0000] {subprocess.py:93} INFO - [0m06:01:33  Found 12 models, 35 tests, 3 sources, 0 exposures, 0 metrics, 391 macros, 0 groups, 0 semantic models
+[2026-07-14T06:01:33.260+0000] {subprocess.py:93} INFO - [0m06:01:33
+[2026-07-14T06:01:33.341+0000] {subprocess.py:93} INFO - [0m06:01:33  Concurrency: 4 threads (target='dev')
+[2026-07-14T06:01:33.342+0000] {subprocess.py:93} INFO - [0m06:01:33
+[2026-07-14T06:01:33.348+0000] {subprocess.py:93} INFO - [0m06:01:33  1 of 12 START sql view model main.stg_customer ................................. [RUN]
+[2026-07-14T06:01:33.351+0000] {subprocess.py:93} INFO - [0m06:01:33  2 of 12 START sql view model main.stg_order .................................... [RUN]
+[2026-07-14T06:01:33.352+0000] {subprocess.py:93} INFO - [0m06:01:33  3 of 12 START sql view model main.stg_seller ................................... [RUN]
+[2026-07-14T06:01:33.529+0000] {subprocess.py:93} INFO - [0m06:01:33  2 of 12 OK created sql view model main.stg_order ............................... [[32mOK[0m in 0.17s]
+[2026-07-14T06:01:33.536+0000] {subprocess.py:93} INFO - [0m06:01:33  1 of 12 OK created sql view model main.stg_customer ............................ [[32mOK[0m in 0.18s]
+[2026-07-14T06:01:33.536+0000] {subprocess.py:93} INFO - [0m06:01:33  4 of 12 START sql view model main.int_orders_with_status ....................... [RUN]
+[2026-07-14T06:01:33.546+0000] {subprocess.py:93} INFO - [0m06:01:33  3 of 12 OK created sql view model main.stg_seller .............................. [[32mOK[0m in 0.18s]
+[2026-07-14T06:01:33.548+0000] {subprocess.py:93} INFO - [0m06:01:33  5 of 12 START sql view model main.int_customer_segmented ....................... [RUN]
+[2026-07-14T06:01:33.554+0000] {subprocess.py:93} INFO - [0m06:01:33  6 of 12 START sql table model main.dim_seller .................................. [RUN]
+[2026-07-14T06:01:33.555+0000] {subprocess.py:93} INFO - [0m06:01:33  7 of 12 START sql view model main.int_seller ................................... [RUN]
+[2026-07-14T06:01:33.649+0000] {subprocess.py:93} INFO - [0m06:01:33  4 of 12 OK created sql view model main.int_orders_with_status .................. [[32mOK[0m in 0.10s]
+[2026-07-14T06:01:33.660+0000] {subprocess.py:93} INFO - [0m06:01:33  8 of 12 START sql table model main.fct_orders .................................. [RUN]
+[2026-07-14T06:01:33.678+0000] {subprocess.py:93} INFO - [0m06:01:33  5 of 12 ERROR creating sql view model main.int_customer_segmented .............. [[31mERROR[0m in 0.12s]
+[2026-07-14T06:01:33.680+0000] {subprocess.py:93} INFO - [0m06:01:33  7 of 12 OK created sql view model main.int_seller .............................. [[32mOK[0m in 0.12s]
+[2026-07-14T06:01:33.692+0000] {subprocess.py:93} INFO - [0m06:01:33  9 of 12 SKIP relation main.dim_customers ....................................... [[33mSKIP[0m]
+[2026-07-14T06:01:33.698+0000] {subprocess.py:93} INFO - [0m06:01:33  6 of 12 OK created sql table model main.dim_seller ............................. [[32mOK[0m in 0.14s]
+[2026-07-14T06:01:34.038+0000] {subprocess.py:93} INFO - [0m06:01:34  8 of 12 OK created sql table model main.fct_orders ............................. [[32mOK[0m in 0.37s]
+[2026-07-14T06:01:34.041+0000] {subprocess.py:93} INFO - [0m06:01:34  10 of 12 START sql table model main.dim_product ................................ [RUN]
+[2026-07-14T06:01:34.042+0000] {subprocess.py:93} INFO - [0m06:01:34  11 of 12 START sql table model main.fct_daily_revenue .......................... [RUN]
+[2026-07-14T06:01:34.043+0000] {subprocess.py:93} INFO - [0m06:01:34  12 of 12 START sql table model main.fct_monthly_revenue ........................ [RUN]
+[2026-07-14T06:01:34.125+0000] {subprocess.py:93} INFO - [0m06:01:34  11 of 12 OK created sql table model main.fct_daily_revenue ..................... [[32mOK[0m in 0.08s]
+[2026-07-14T06:01:34.131+0000] {subprocess.py:93} INFO - [0m06:01:34  12 of 12 OK created sql table model main.fct_monthly_revenue ................... [[32mOK[0m in 0.08s]
+[2026-07-14T06:01:34.178+0000] {subprocess.py:93} INFO - [0m06:01:34  10 of 12 OK created sql table model main.dim_product ........................... [[32mOK[0m in 0.13s]
+[2026-07-14T06:01:34.202+0000] {subprocess.py:93} INFO - [0m06:01:34
+[2026-07-14T06:01:34.202+0000] {subprocess.py:93} INFO - [0m06:01:34  Finished running 6 view models, 6 table models in 0 hours 0 minutes and 0.94 seconds (0.94s).
+[2026-07-14T06:01:34.223+0000] {subprocess.py:93} INFO - [0m06:01:34
+[2026-07-14T06:01:34.225+0000] {subprocess.py:93} INFO - [0m06:01:34  [31mCompleted with 1 error and 0 warnings:[0m
+[2026-07-14T06:01:34.226+0000] {subprocess.py:93} INFO - [0m06:01:34
+[2026-07-14T06:01:34.228+0000] {subprocess.py:93} INFO - [0m06:01:34    Runtime Error in model int_customer_segmented (models/intermediate/int_customer_segmented.sql)
+[2026-07-14T06:01:34.229+0000] {subprocess.py:93} INFO -   Binder Error: Alias "recency_segment" referenced in a SELECT clause - but the expression has side effects. This is not yet supported.
+[2026-07-14T06:01:34.230+0000] {subprocess.py:93} INFO - [0m06:01:34
+[2026-07-14T06:01:34.231+0000] {subprocess.py:93} INFO - [0m06:01:34  Done. PASS=10 WARN=0 ERROR=1 SKIP=1 TOTAL=12
+[2026-07-14T06:01:36.363+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-07-14T06:01:36.372+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 212, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-07-14T06:01:36.377+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=ecommerce_batch_pipeline, task_id=dbt_run, execution_date=20260713T060000, start_date=20260714T060129, end_date=20260714T060136
+[2026-07-14T06:01:36.389+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 107 for task dbt_run (Bash command failed. The command returned a non-zero exit code 1.; 3631)
+[2026-07-14T06:01:36.428+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2026-07-14T06:01:36.448+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,82 @@
+version: 2
+
+models:
+  - name: int_customer_segmented
+    description: >
+      Customer segmentation model that classifies customers based on
+      purchase frequency, spending behavior, recency, and overall value.
+
+    columns:
+      - name: customer_unique_id
+        description: Unique identifier for each customer.
+        tests:
+          - not_null
+          - unique
+
+      - name: total_orders
+        description: Total number of orders placed by the customer.
+
+      - name: total_spent
+        description: Total amount spent by the customer.
+
+      - name: avg_order_value
+        description: Average value of each order.
+
+      - name: first_order_date
+        description: Date of the customer's first order.
+
+      - name: last_order_date
+        description: Date of the customer's most recent order.
+
+      - name: customer_age_days
+        description: Number of days since the customer's first purchase.
+
+      - name: stg_customer_segment
+        description: Customer segment inherited from the staging model.
+
+      - name: customer_segment
+        description: >
+          Customer classification based on total order count.
+        tests:
+          - accepted_values:
+              values:
+                - new
+                - repeated
+                - loyal
+                - unknown
+
+      - name: spending_segment
+        description: >
+          Spending classification based on total amount spent.
+        tests:
+          - accepted_values:
+              values:
+                - low
+                - medium
+                - high
+                - unknown
+
+      - name: recency_segment
+        description: >
+          Customer activity classification based on the number of days
+          since the last order.
+        tests:
+          - accepted_values:
+              values:
+                - active
+                - warm
+                - cooling
+                - churned
+                - unknown
+
+      - name: customer_value_tier
+        description: >
+          Overall customer value determined using customer segment,
+          spending segment, and recency segment.
+        tests:
+          - accepted_values:
+              values:
+                - champion
+                - potential
+                - at_risk
+                - unknown

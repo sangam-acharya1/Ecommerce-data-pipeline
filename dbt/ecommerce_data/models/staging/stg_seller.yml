@@ -1,0 +1,13 @@
+version: 2
+
+models:
+  - name: stg_seller_metrics
+    columns:
+      - name: seller_id
+        tests:
+          - unique
+          - not_null
+      - name: seller_health
+        tests:
+          - accepted_values:
+              values: ['good', 'average', 'at_risk']

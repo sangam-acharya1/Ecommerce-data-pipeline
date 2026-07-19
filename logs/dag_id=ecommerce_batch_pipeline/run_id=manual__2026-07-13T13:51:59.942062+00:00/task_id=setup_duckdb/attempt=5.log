@@ -1,0 +1,20 @@
+[2026-07-14T05:57:28.986+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ecommerce_batch_pipeline.setup_duckdb manual__2026-07-13T13:51:59.942062+00:00 [queued]>
+[2026-07-14T05:57:28.993+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ecommerce_batch_pipeline.setup_duckdb manual__2026-07-13T13:51:59.942062+00:00 [queued]>
+[2026-07-14T05:57:28.993+0000] {taskinstance.py:2170} INFO - Starting attempt 5 of 6
+[2026-07-14T05:57:29.003+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): setup_duckdb> on 2026-07-13 13:51:59.942062+00:00
+[2026-07-14T05:57:29.008+0000] {standard_task_runner.py:60} INFO - Started process 390 to run task
+[2026-07-14T05:57:29.010+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'ecommerce_batch_pipeline', 'setup_duckdb', 'manual__2026-07-13T13:51:59.942062+00:00', '--job-id', '94', '--raw', '--subdir', 'DAGS_FOLDER/ecommerce_batch_dag.py', '--cfg-path', '/tmp/tmpkoko47ef']
+[2026-07-14T05:57:29.013+0000] {standard_task_runner.py:88} INFO - Job 94: Subtask setup_duckdb
+[2026-07-14T05:57:29.057+0000] {task_command.py:423} INFO - Running <TaskInstance: ecommerce_batch_pipeline.setup_duckdb manual__2026-07-13T13:51:59.942062+00:00 [running]> on host 438c62ed51de
+[2026-07-14T05:57:29.127+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='de-team' AIRFLOW_CTX_DAG_ID='ecommerce_batch_pipeline' AIRFLOW_CTX_TASK_ID='setup_duckdb' AIRFLOW_CTX_EXECUTION_DATE='2026-07-13T13:51:59.942062+00:00' AIRFLOW_CTX_TRY_NUMBER='5' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-07-13T13:51:59.942062+00:00'
+[2026-07-14T05:57:29.129+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-07-14T05:57:29.130+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/scripts/setup_duckdb.py']
+[2026-07-14T05:57:29.142+0000] {subprocess.py:86} INFO - Output:
+[2026-07-14T05:57:29.686+0000] {subprocess.py:93} INFO - ✅ Tables registered in DuckDB:
+[2026-07-14T05:57:29.687+0000] {subprocess.py:93} INFO - - customer_metrics
+[2026-07-14T05:57:29.687+0000] {subprocess.py:93} INFO - - orders_enriched
+[2026-07-14T05:57:29.687+0000] {subprocess.py:93} INFO - - seller_metrics
+[2026-07-14T05:57:29.697+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-07-14T05:57:29.722+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=ecommerce_batch_pipeline, task_id=setup_duckdb, execution_date=20260713T135159, start_date=20260714T055728, end_date=20260714T055729
+[2026-07-14T05:57:29.744+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-07-14T05:57:29.763+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

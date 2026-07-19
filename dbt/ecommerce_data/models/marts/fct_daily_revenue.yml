@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: fct_daily_revenue
+    description: >
+      Daily revenue fact table that aggregates order-level data into
+      daily business metrics, including revenue, order volume, freight,
+      first purchases, and on-time deliveries.
+
+    columns:
+      - name: order_date
+        description: Date on which the orders were placed.
+        tests:
+          - not_null
+          - unique
+
+      - name: daily_revenue
+        description: Total revenue generated from all orders on the given date.
+
+      - name: total_orders
+        description: Total number of orders placed on the given date.
+
+      - name: avg_order_value
+        description: Average value of orders placed on the given date.
+
+      - name: total_freight
+        description: Total freight charges collected on the given date.
+
+      - name: first_purchases
+        description: Number of customers who made their first purchase on the given date.
+
+      - name: on_time_deliveries
+        description: Number of orders delivered on time on the given date.

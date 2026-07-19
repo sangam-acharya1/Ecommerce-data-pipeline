@@ -1,0 +1,20 @@
+[2026-07-13T13:36:16.938+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ecommerce_batch_pipeline.spark_enrich_orders manual__2026-07-13T12:48:53.806244+00:00 [queued]>
+[2026-07-13T13:36:16.943+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ecommerce_batch_pipeline.spark_enrich_orders manual__2026-07-13T12:48:53.806244+00:00 [queued]>
+[2026-07-13T13:36:16.944+0000] {taskinstance.py:2170} INFO - Starting attempt 3 of 4
+[2026-07-13T13:36:16.952+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): spark_enrich_orders> on 2026-07-13 12:48:53.806244+00:00
+[2026-07-13T13:36:16.957+0000] {standard_task_runner.py:60} INFO - Started process 86 to run task
+[2026-07-13T13:36:16.960+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'ecommerce_batch_pipeline', 'spark_enrich_orders', 'manual__2026-07-13T12:48:53.806244+00:00', '--job-id', '57', '--raw', '--subdir', 'DAGS_FOLDER/ecommerce_batch_dag.py', '--cfg-path', '/tmp/tmpk3_w31df']
+[2026-07-13T13:36:16.962+0000] {standard_task_runner.py:88} INFO - Job 57: Subtask spark_enrich_orders
+[2026-07-13T13:36:17.002+0000] {task_command.py:423} INFO - Running <TaskInstance: ecommerce_batch_pipeline.spark_enrich_orders manual__2026-07-13T12:48:53.806244+00:00 [running]> on host 0567d287bcdc
+[2026-07-13T13:36:17.057+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='de-team' AIRFLOW_CTX_DAG_ID='ecommerce_batch_pipeline' AIRFLOW_CTX_TASK_ID='spark_enrich_orders' AIRFLOW_CTX_EXECUTION_DATE='2026-07-13T12:48:53.806244+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-07-13T12:48:53.806244+00:00'
+[2026-07-13T13:36:17.058+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-07-13T13:36:17.059+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python /opt/***/spark/jobs/enrich_orders.py']
+[2026-07-13T13:36:17.070+0000] {subprocess.py:86} INFO - Output:
+[2026-07-13T13:36:18.994+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-07-13T13:36:18.995+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-07-13T13:36:19.221+0000] {subprocess.py:93} INFO - 26/07/13 13:36:19 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-07-13T13:36:31.747+0000] {subprocess.py:93} INFO - [Stage 9:>  (0 + 12) / 12][Stage 10:>  (0 + 0) / 12][Stage 11:>   (0 + 0) / 4][Stage 10:>               (0 + 12) / 12][Stage 11:>                 (0 + 0) / 4][Stage 10:========>        (6 + 6) / 12][Stage 11:>                 (0 + 4) / 4][Stage 11:>                 (0 + 4) / 4][Stage 13:>                 (0 + 5) / 5][Stage 11:====>             (1 + 3) / 4][Stage 13:==============>   (4 + 1) / 5][Stage 13:==============================================>           (4 + 1) / 5]                                                                                [Stage 18:>                                                       (0 + 10) / 10]                                                                                ✅ enrich_orders done — 99441 rows
+[2026-07-13T13:36:32.212+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-07-13T13:36:32.230+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=ecommerce_batch_pipeline, task_id=spark_enrich_orders, execution_date=20260713T124853, start_date=20260713T133616, end_date=20260713T133632
+[2026-07-13T13:36:32.256+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-07-13T13:36:32.277+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: fct_orders
+    description: "One row per order. Single source of truth for all order analysis."
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+      - name: customer_id
+        tests:
+          - not_null
+      - name: total_order_value
+        description: Total value of the order including freight.
+      - name: delivery_status
+        tests:
+          - accepted_values:
+              values: ['on_time', 'slightly_late', 'late', 
+                       'very_late', 'not_delivered', 'unknown']
+      - name: revenue_band
+        tests:
+          - accepted_values:
+              values: ['low', 'medium', 'high']

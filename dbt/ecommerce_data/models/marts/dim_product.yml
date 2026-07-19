@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: dim_product
+    description: "One row per product category with volume, revenue and delivery metrics"
+    columns:
+      - name: product_category
+        tests:
+          - unique
+          - not_null
+      - name: total_orders
+        tests:
+          - not_null
+      - name: total_revenue
+        tests:
+          - not_null

@@ -1,0 +1,98 @@
+[2026-07-14T06:02:45.379+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ecommerce_batch_pipeline.dbt_test manual__2026-07-13T13:51:59.942062+00:00 [queued]>
+[2026-07-14T06:02:45.385+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ecommerce_batch_pipeline.dbt_test manual__2026-07-13T13:51:59.942062+00:00 [queued]>
+[2026-07-14T06:02:45.385+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 2
+[2026-07-14T06:02:45.393+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): dbt_test> on 2026-07-13 13:51:59.942062+00:00
+[2026-07-14T06:02:45.397+0000] {standard_task_runner.py:60} INFO - Started process 3910 to run task
+[2026-07-14T06:02:45.400+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'ecommerce_batch_pipeline', 'dbt_test', 'manual__2026-07-13T13:51:59.942062+00:00', '--job-id', '109', '--raw', '--subdir', 'DAGS_FOLDER/ecommerce_batch_dag.py', '--cfg-path', '/tmp/tmp21q5f69o']
+[2026-07-14T06:02:45.402+0000] {standard_task_runner.py:88} INFO - Job 109: Subtask dbt_test
+[2026-07-14T06:02:45.440+0000] {task_command.py:423} INFO - Running <TaskInstance: ecommerce_batch_pipeline.dbt_test manual__2026-07-13T13:51:59.942062+00:00 [running]> on host 438c62ed51de
+[2026-07-14T06:02:45.487+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='de-team' AIRFLOW_CTX_DAG_ID='ecommerce_batch_pipeline' AIRFLOW_CTX_TASK_ID='dbt_test' AIRFLOW_CTX_EXECUTION_DATE='2026-07-13T13:51:59.942062+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-07-13T13:51:59.942062+00:00'
+[2026-07-14T06:02:45.489+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-07-14T06:02:45.490+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '\n        cd /opt/***/dbt/ecommerce_data &&\n        dbt test --profiles-dir /opt/***/dbt --target dev\n        ']
+[2026-07-14T06:02:45.498+0000] {subprocess.py:86} INFO - Output:
+[2026-07-14T06:02:47.373+0000] {subprocess.py:93} INFO - [0m06:02:47  Running with dbt=1.7.18
+[2026-07-14T06:02:47.563+0000] {subprocess.py:93} INFO - [0m06:02:47  Registered adapter: duckdb=1.7.2
+[2026-07-14T06:02:47.614+0000] {subprocess.py:93} INFO - [0m06:02:47  Found 12 models, 35 tests, 3 sources, 0 exposures, 0 metrics, 391 macros, 0 groups, 0 semantic models
+[2026-07-14T06:02:47.616+0000] {subprocess.py:93} INFO - [0m06:02:47
+[2026-07-14T06:02:47.663+0000] {subprocess.py:93} INFO - [0m06:02:47  Concurrency: 4 threads (target='dev')
+[2026-07-14T06:02:47.663+0000] {subprocess.py:93} INFO - [0m06:02:47
+[2026-07-14T06:02:47.669+0000] {subprocess.py:93} INFO - [0m06:02:47  1 of 35 START test accepted_values_dim_customers_customer_segment__new__repeated__loyal__unknown  [RUN]
+[2026-07-14T06:02:47.672+0000] {subprocess.py:93} INFO - [0m06:02:47  2 of 35 START test accepted_values_dim_customers_customer_value_tier__champion__potential__at_risk__unknown  [RUN]
+[2026-07-14T06:02:47.673+0000] {subprocess.py:93} INFO - [0m06:02:47  3 of 35 START test accepted_values_dim_customers_recency_segment__active__warm__cooling__churned__unknown  [RUN]
+[2026-07-14T06:02:47.673+0000] {subprocess.py:93} INFO - [0m06:02:47  4 of 35 START test accepted_values_dim_customers_spending_segment__low__medium__high__unknown  [RUN]
+[2026-07-14T06:02:47.791+0000] {subprocess.py:93} INFO - [0m06:02:47  1 of 35 PASS accepted_values_dim_customers_customer_segment__new__repeated__loyal__unknown  [[32mPASS[0m in 0.12s]
+[2026-07-14T06:02:47.794+0000] {subprocess.py:93} INFO - [0m06:02:47  3 of 35 PASS accepted_values_dim_customers_recency_segment__active__warm__cooling__churned__unknown  [[32mPASS[0m in 0.11s]
+[2026-07-14T06:02:47.796+0000] {subprocess.py:93} INFO - [0m06:02:47  2 of 35 PASS accepted_values_dim_customers_customer_value_tier__champion__potential__at_risk__unknown  [[32mPASS[0m in 0.12s]
+[2026-07-14T06:02:47.799+0000] {subprocess.py:93} INFO - [0m06:02:47  4 of 35 PASS accepted_values_dim_customers_spending_segment__low__medium__high__unknown  [[32mPASS[0m in 0.11s]
+[2026-07-14T06:02:47.799+0000] {subprocess.py:93} INFO - [0m06:02:47  5 of 35 START test accepted_values_dim_seller_delivery_reliability__perfect__reliable__unreliable__poor  [RUN]
+[2026-07-14T06:02:47.803+0000] {subprocess.py:93} INFO - [0m06:02:47  6 of 35 START test accepted_values_fct_orders_delivery_status__on_time__slightly_late__late__very_late__not_delivered__unknown  [RUN]
+[2026-07-14T06:02:47.805+0000] {subprocess.py:93} INFO - [0m06:02:47  7 of 35 START test accepted_values_fct_orders_revenue_band__low__medium__high .. [RUN]
+[2026-07-14T06:02:47.807+0000] {subprocess.py:93} INFO - [0m06:02:47  8 of 35 START test accepted_values_int_customer_segmented_customer_segment__new__repeated__loyal__unknown  [RUN]
+[2026-07-14T06:02:47.869+0000] {subprocess.py:93} INFO - [0m06:02:47  5 of 35 PASS accepted_values_dim_seller_delivery_reliability__perfect__reliable__unreliable__poor  [[32mPASS[0m in 0.07s]
+[2026-07-14T06:02:47.876+0000] {subprocess.py:93} INFO - [0m06:02:47  7 of 35 PASS accepted_values_fct_orders_revenue_band__low__medium__high ........ [[32mPASS[0m in 0.06s]
+[2026-07-14T06:02:47.877+0000] {subprocess.py:93} INFO - [0m06:02:47  9 of 35 START test accepted_values_int_customer_segmented_customer_value_tier__champion__potential__at_risk__unknown  [RUN]
+[2026-07-14T06:02:47.878+0000] {subprocess.py:93} INFO - [0m06:02:47  6 of 35 PASS accepted_values_fct_orders_delivery_status__on_time__slightly_late__late__very_late__not_delivered__unknown  [[32mPASS[0m in 0.07s]
+[2026-07-14T06:02:47.885+0000] {subprocess.py:93} INFO - [0m06:02:47  10 of 35 START test accepted_values_int_customer_segmented_recency_segment__active__warm__cooling__churned__unknown  [RUN]
+[2026-07-14T06:02:47.891+0000] {subprocess.py:93} INFO - [0m06:02:47  11 of 35 START test accepted_values_int_customer_segmented_spending_segment__low__medium__high__unknown  [RUN]
+[2026-07-14T06:02:47.903+0000] {subprocess.py:93} INFO - [0m06:02:47  8 of 35 PASS accepted_values_int_customer_segmented_customer_segment__new__repeated__loyal__unknown  [[32mPASS[0m in 0.09s]
+[2026-07-14T06:02:47.914+0000] {subprocess.py:93} INFO - [0m06:02:47  12 of 35 START test accepted_values_int_orders_with_status_delivery_status__not_delivered__unknown__on_time__slightly_late__late__very_late  [RUN]
+[2026-07-14T06:02:47.964+0000] {subprocess.py:93} INFO - [0m06:02:47  11 of 35 PASS accepted_values_int_customer_segmented_spending_segment__low__medium__high__unknown  [[32mPASS[0m in 0.07s]
+[2026-07-14T06:02:47.968+0000] {subprocess.py:93} INFO - [0m06:02:47  9 of 35 PASS accepted_values_int_customer_segmented_customer_value_tier__champion__potential__at_risk__unknown  [[32mPASS[0m in 0.09s]
+[2026-07-14T06:02:47.969+0000] {subprocess.py:93} INFO - [0m06:02:47  13 of 35 START test accepted_values_int_orders_with_status_order_day_type__weekday__weekend  [RUN]
+[2026-07-14T06:02:47.970+0000] {subprocess.py:93} INFO - [0m06:02:47  10 of 35 PASS accepted_values_int_customer_segmented_recency_segment__active__warm__cooling__churned__unknown  [[32mPASS[0m in 0.08s]
+[2026-07-14T06:02:47.978+0000] {subprocess.py:93} INFO - [0m06:02:47  14 of 35 START test accepted_values_int_orders_with_status_revenue_band__low__medium__high  [RUN]
+[2026-07-14T06:02:47.985+0000] {subprocess.py:93} INFO - [0m06:02:47  15 of 35 START test accepted_values_int_seller_delivery_reliability__perfect__reliable__unreliable__poor  [RUN]
+[2026-07-14T06:02:48.023+0000] {subprocess.py:93} INFO - [0m06:02:48  12 of 35 PASS accepted_values_int_orders_with_status_delivery_status__not_delivered__unknown__on_time__slightly_late__late__very_late  [[32mPASS[0m in 0.10s]
+[2026-07-14T06:02:48.033+0000] {subprocess.py:93} INFO - [0m06:02:48  16 of 35 START test not_null_dim_customers_customer_unique_id .................. [RUN]
+[2026-07-14T06:02:48.064+0000] {subprocess.py:93} INFO - [0m06:02:48  15 of 35 PASS accepted_values_int_seller_delivery_reliability__perfect__reliable__unreliable__poor  [[32mPASS[0m in 0.08s]
+[2026-07-14T06:02:48.071+0000] {subprocess.py:93} INFO - [0m06:02:48  17 of 35 START test not_null_dim_product_product_category ...................... [RUN]
+[2026-07-14T06:02:48.080+0000] {subprocess.py:93} INFO - [0m06:02:48  13 of 35 PASS accepted_values_int_orders_with_status_order_day_type__weekday__weekend  [[32mPASS[0m in 0.11s]
+[2026-07-14T06:02:48.090+0000] {subprocess.py:93} INFO - [0m06:02:48  18 of 35 START test not_null_dim_product_total_orders .......................... [RUN]
+[2026-07-14T06:02:48.097+0000] {subprocess.py:93} INFO - [0m06:02:48  16 of 35 PASS not_null_dim_customers_customer_unique_id ........................ [[32mPASS[0m in 0.06s]
+[2026-07-14T06:02:48.115+0000] {subprocess.py:93} INFO - [0m06:02:48  14 of 35 PASS accepted_values_int_orders_with_status_revenue_band__low__medium__high  [[32mPASS[0m in 0.13s]
+[2026-07-14T06:02:48.118+0000] {subprocess.py:93} INFO - [0m06:02:48  19 of 35 START test not_null_dim_product_total_revenue ......................... [RUN]
+[2026-07-14T06:02:48.126+0000] {subprocess.py:93} INFO - [0m06:02:48  20 of 35 START test not_null_dim_seller_seller_id .............................. [RUN]
+[2026-07-14T06:02:48.176+0000] {subprocess.py:93} INFO - [0m06:02:48  17 of 35 PASS not_null_dim_product_product_category ............................ [[32mPASS[0m in 0.10s]
+[2026-07-14T06:02:48.187+0000] {subprocess.py:93} INFO - [0m06:02:48  21 of 35 START test not_null_fct_daily_revenue_order_date ...................... [RUN]
+[2026-07-14T06:02:48.194+0000] {subprocess.py:93} INFO - [0m06:02:48  18 of 35 PASS not_null_dim_product_total_orders ................................ [[32mPASS[0m in 0.10s]
+[2026-07-14T06:02:48.207+0000] {subprocess.py:93} INFO - [0m06:02:48  22 of 35 START test not_null_fct_monthly_revenue_order_month ................... [RUN]
+[2026-07-14T06:02:48.215+0000] {subprocess.py:93} INFO - [0m06:02:48  19 of 35 PASS not_null_dim_product_total_revenue ............................... [[32mPASS[0m in 0.10s]
+[2026-07-14T06:02:48.224+0000] {subprocess.py:93} INFO - [0m06:02:48  20 of 35 PASS not_null_dim_seller_seller_id .................................... [[32mPASS[0m in 0.09s]
+[2026-07-14T06:02:48.228+0000] {subprocess.py:93} INFO - [0m06:02:48  23 of 35 START test not_null_fct_monthly_revenue_order_year .................... [RUN]
+[2026-07-14T06:02:48.237+0000] {subprocess.py:93} INFO - [0m06:02:48  24 of 35 START test not_null_fct_monthly_revenue_total_orders .................. [RUN]
+[2026-07-14T06:02:48.263+0000] {subprocess.py:93} INFO - [0m06:02:48  21 of 35 PASS not_null_fct_daily_revenue_order_date ............................ [[32mPASS[0m in 0.07s]
+[2026-07-14T06:02:48.269+0000] {subprocess.py:93} INFO - [0m06:02:48  25 of 35 START test not_null_fct_orders_customer_id ............................ [RUN]
+[2026-07-14T06:02:48.272+0000] {subprocess.py:93} INFO - [0m06:02:48  22 of 35 PASS not_null_fct_monthly_revenue_order_month ......................... [[32mPASS[0m in 0.06s]
+[2026-07-14T06:02:48.281+0000] {subprocess.py:93} INFO - [0m06:02:48  26 of 35 START test not_null_fct_orders_order_id ............................... [RUN]
+[2026-07-14T06:02:48.288+0000] {subprocess.py:93} INFO - [0m06:02:48  23 of 35 PASS not_null_fct_monthly_revenue_order_year .......................... [[32mPASS[0m in 0.05s]
+[2026-07-14T06:02:48.300+0000] {subprocess.py:93} INFO - [0m06:02:48  24 of 35 PASS not_null_fct_monthly_revenue_total_orders ........................ [[32mPASS[0m in 0.06s]
+[2026-07-14T06:02:48.306+0000] {subprocess.py:93} INFO - [0m06:02:48  27 of 35 START test not_null_int_customer_segmented_customer_unique_id ......... [RUN]
+[2026-07-14T06:02:48.310+0000] {subprocess.py:93} INFO - [0m06:02:48  28 of 35 START test not_null_int_orders_with_status_order_id ................... [RUN]
+[2026-07-14T06:02:48.347+0000] {subprocess.py:93} INFO - [0m06:02:48  25 of 35 PASS not_null_fct_orders_customer_id .................................. [[32mPASS[0m in 0.07s]
+[2026-07-14T06:02:48.350+0000] {subprocess.py:93} INFO - [0m06:02:48  26 of 35 PASS not_null_fct_orders_order_id ..................................... [[32mPASS[0m in 0.07s]
+[2026-07-14T06:02:48.352+0000] {subprocess.py:93} INFO - [0m06:02:48  29 of 35 START test not_null_int_seller_seller_id .............................. [RUN]
+[2026-07-14T06:02:48.359+0000] {subprocess.py:93} INFO - [0m06:02:48  30 of 35 START test unique_dim_customers_customer_unique_id .................... [RUN]
+[2026-07-14T06:02:48.384+0000] {subprocess.py:93} INFO - [0m06:02:48  27 of 35 PASS not_null_int_customer_segmented_customer_unique_id ............... [[32mPASS[0m in 0.07s]
+[2026-07-14T06:02:48.390+0000] {subprocess.py:93} INFO - [0m06:02:48  28 of 35 PASS not_null_int_orders_with_status_order_id ......................... [[32mPASS[0m in 0.07s]
+[2026-07-14T06:02:48.397+0000] {subprocess.py:93} INFO - [0m06:02:48  31 of 35 START test unique_dim_product_product_category ........................ [RUN]
+[2026-07-14T06:02:48.397+0000] {subprocess.py:93} INFO - [0m06:02:48  32 of 35 START test unique_dim_seller_seller_id ................................ [RUN]
+[2026-07-14T06:02:48.441+0000] {subprocess.py:93} INFO - [0m06:02:48  29 of 35 PASS not_null_int_seller_seller_id .................................... [[32mPASS[0m in 0.09s]
+[2026-07-14T06:02:48.446+0000] {subprocess.py:93} INFO - [0m06:02:48  33 of 35 START test unique_fct_daily_revenue_order_date ........................ [RUN]
+[2026-07-14T06:02:48.447+0000] {subprocess.py:93} INFO - [0m06:02:48  30 of 35 PASS unique_dim_customers_customer_unique_id .......................... [[32mPASS[0m in 0.08s]
+[2026-07-14T06:02:48.458+0000] {subprocess.py:93} INFO - [0m06:02:48  34 of 35 START test unique_int_customer_segmented_customer_unique_id ........... [RUN]
+[2026-07-14T06:02:48.470+0000] {subprocess.py:93} INFO - [0m06:02:48  32 of 35 PASS unique_dim_seller_seller_id ...................................... [[32mPASS[0m in 0.07s]
+[2026-07-14T06:02:48.475+0000] {subprocess.py:93} INFO - [0m06:02:48  31 of 35 PASS unique_dim_product_product_category .............................. [[32mPASS[0m in 0.08s]
+[2026-07-14T06:02:48.480+0000] {subprocess.py:93} INFO - [0m06:02:48  35 of 35 START test unique_int_seller_seller_id ................................ [RUN]
+[2026-07-14T06:02:48.506+0000] {subprocess.py:93} INFO - [0m06:02:48  33 of 35 PASS unique_fct_daily_revenue_order_date .............................. [[32mPASS[0m in 0.06s]
+[2026-07-14T06:02:48.521+0000] {subprocess.py:93} INFO - [0m06:02:48  34 of 35 PASS unique_int_customer_segmented_customer_unique_id ................. [[32mPASS[0m in 0.06s]
+[2026-07-14T06:02:48.526+0000] {subprocess.py:93} INFO - [0m06:02:48  35 of 35 PASS unique_int_seller_seller_id ...................................... [[32mPASS[0m in 0.04s]
+[2026-07-14T06:02:48.548+0000] {subprocess.py:93} INFO - [0m06:02:48
+[2026-07-14T06:02:48.548+0000] {subprocess.py:93} INFO - [0m06:02:48  Finished running 35 tests in 0 hours 0 minutes and 0.93 seconds (0.93s).
+[2026-07-14T06:02:48.565+0000] {subprocess.py:93} INFO - [0m06:02:48
+[2026-07-14T06:02:48.566+0000] {subprocess.py:93} INFO - [0m06:02:48  [32mCompleted successfully[0m
+[2026-07-14T06:02:48.566+0000] {subprocess.py:93} INFO - [0m06:02:48
+[2026-07-14T06:02:48.567+0000] {subprocess.py:93} INFO - [0m06:02:48  Done. PASS=35 WARN=0 ERROR=0 SKIP=0 TOTAL=35
+[2026-07-14T06:02:50.032+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-07-14T06:02:50.051+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=ecommerce_batch_pipeline, task_id=dbt_test, execution_date=20260713T135159, start_date=20260714T060245, end_date=20260714T060250
+[2026-07-14T06:02:50.066+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-07-14T06:02:50.078+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

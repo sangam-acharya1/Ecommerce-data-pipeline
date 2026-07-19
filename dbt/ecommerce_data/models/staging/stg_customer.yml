@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: stg_customer_metrics
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+      - name: customer_segment
+        tests:
+          - accepted_values:
+              values: ['new', 'repeat', 'loyal']
+      - name: total_orders
+        tests:
+          - not_null

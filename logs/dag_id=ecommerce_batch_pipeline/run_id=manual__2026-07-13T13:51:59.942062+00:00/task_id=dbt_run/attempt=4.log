@@ -1,0 +1,28 @@
+[2026-07-13T14:25:53.477+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ecommerce_batch_pipeline.dbt_run manual__2026-07-13T13:51:59.942062+00:00 [queued]>
+[2026-07-13T14:25:53.483+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ecommerce_batch_pipeline.dbt_run manual__2026-07-13T13:51:59.942062+00:00 [queued]>
+[2026-07-13T14:25:53.483+0000] {taskinstance.py:2170} INFO - Starting attempt 4 of 5
+[2026-07-13T14:25:53.494+0000] {taskinstance.py:2191} INFO - Executing <Task(BashOperator): dbt_run> on 2026-07-13 13:51:59.942062+00:00
+[2026-07-13T14:25:53.498+0000] {standard_task_runner.py:60} INFO - Started process 475 to run task
+[2026-07-13T14:25:53.501+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'ecommerce_batch_pipeline', 'dbt_run', 'manual__2026-07-13T13:51:59.942062+00:00', '--job-id', '86', '--raw', '--subdir', 'DAGS_FOLDER/ecommerce_batch_dag.py', '--cfg-path', '/tmp/tmppa81yw0z']
+[2026-07-13T14:25:53.504+0000] {standard_task_runner.py:88} INFO - Job 86: Subtask dbt_run
+[2026-07-13T14:25:53.542+0000] {task_command.py:423} INFO - Running <TaskInstance: ecommerce_batch_pipeline.dbt_run manual__2026-07-13T13:51:59.942062+00:00 [running]> on host 596d5e8b85cd
+[2026-07-13T14:25:53.591+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='de-team' AIRFLOW_CTX_DAG_ID='ecommerce_batch_pipeline' AIRFLOW_CTX_TASK_ID='dbt_run' AIRFLOW_CTX_EXECUTION_DATE='2026-07-13T13:51:59.942062+00:00' AIRFLOW_CTX_TRY_NUMBER='4' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-07-13T13:51:59.942062+00:00'
+[2026-07-13T14:25:53.593+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-07-13T14:25:53.593+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd /opt/***/dbt/ecommerce_data && dbt run --target dev']
+[2026-07-13T14:25:53.603+0000] {subprocess.py:86} INFO - Output:
+[2026-07-13T14:25:55.156+0000] {subprocess.py:93} INFO - Usage: dbt run [OPTIONS]
+[2026-07-13T14:25:55.157+0000] {subprocess.py:93} INFO - Try 'dbt run -h' for help.
+[2026-07-13T14:25:55.157+0000] {subprocess.py:93} INFO - 
+[2026-07-13T14:25:55.157+0000] {subprocess.py:93} INFO - Error: Invalid value for '--profiles-dir': Path '/home/***/.dbt' does not exist.
+[2026-07-13T14:25:55.284+0000] {subprocess.py:97} INFO - Command exited with return code 2
+[2026-07-13T14:25:55.291+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/operators/bash.py", line 212, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2026-07-13T14:25:55.293+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=ecommerce_batch_pipeline, task_id=dbt_run, execution_date=20260713T135159, start_date=20260713T142553, end_date=20260713T142555
+[2026-07-13T14:25:55.303+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 86 for task dbt_run (Bash command failed. The command returned a non-zero exit code 2.; 475)
+[2026-07-13T14:25:55.316+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2026-07-13T14:25:55.331+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
