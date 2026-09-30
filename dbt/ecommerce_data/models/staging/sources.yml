@@ -2,9 +2,10 @@ version: 2
 
 sources:
   - name: olist_gold
-    database: ecommerce_data      
-    schema: main                   # the schema where your gold tables actually live
+    database: ecommerce_data
+    schema: main
     tables:
       - name: orders_enriched
+      - name: order_items_enriched
       - name: customer_metrics
       - name: seller_metrics

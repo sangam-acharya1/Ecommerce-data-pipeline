@@ -1,8 +1,8 @@
 {{ config(materialized='table') }}
 
-with orders as (
+with items as (
 
-    select * from {{ ref('fct_orders') }}
+    select * from {{ ref('fct_order_items') }}
 
 ),
 
@@ -10,43 +10,39 @@ aggregated as (
 
     select
 
-        ---identifier 
+        ---------- identifier ----------
         product_category,
 
-        ----volume metrics 
-        count(order_id)    as total_orders,
-        count(distinct customer_id)   as unique_customers,
-        count(distinct seller_id)     as unique_sellers,
+        ---------- volume metrics ----------
+        count(distinct order_id)        as total_orders,
+        count(*)                        as total_items_sold,
+        count(distinct customer_id)     as unique_customers,
+        count(distinct seller_id)       as unique_sellers,
 
-        --revenue metrics
-        round(sum(total_order_value), 2)   as total_revenue,
-        round(avg(total_order_value), 2)   as avg_order_value,
-        round(avg(product_price), 2)      as avg_price,
-        round(avg(freight_value), 2)       as avg_freight,
-        round(sum(freight_value), 2)       as total_freight,
+        ---------- revenue metrics ----------
+        round(sum(item_total_value), 2) as total_revenue,
+        round(avg(item_total_value), 2) as avg_item_value,
+        round(avg(price), 2)            as avg_price,
+        round(avg(freight_value), 2)    as avg_freight,
+        round(sum(freight_value), 2)    as total_freight,
 
-        -- delivery metrics 
-        round(avg(delivery_days), 1)         as avg_delivery_days,
-        sum(case when delivery_status != 'on_time'
-                 then 1 else 0 end)    as late_orders,
-        round(  
-            sum(case when delivery_status != 'on_time'
-                     then 1 else 0 end) * 100.0
-            / nullif(count(order_id), 0)
-        , 2)      as late_order_pct,
+        ---------- delivery metrics ----------
+        round(avg(delivery_days), 1)    as avg_delivery_days,
+        sum(case when is_late then 1 else 0end)                       as late_items,
+        round(
+            sum(case when is_late then 1 else 0 end) * 100.0
+            / nullif(count(*), 0)
+        , 2)                             as late_item_pct,
 
-        ---------- revenue bands ----------
-        sum(case when revenue_band = 'high'
-                 then 1 else 0 end)    as high_band_orders,
-        sum(case when revenue_band = 'medium'
-                 then 1 else 0 end)    as medium_band_orders,
-        sum(case when revenue_band = 'low'
-                 then 1 else 0 end)  as low_band_orders,
+        ---------- item price bands (recomputed at item grain) ----------
+        sum(case when price < 50               then 1 else 0 end) as low_band_items,
+        sum(case when price between 50 and 200 then 1 else 0 end) as medium_band_items,
+        sum(case when price > 200              then 1 else 0 end) as high_band_items,
 
         ---------- top customer state ----------
-        mode() within group (order by customer_state)     as top_customer_state
+        mode() within group (order by customer_state) as top_customer_state
 
-    from orders
+    from items
     where product_category is not null
     group by product_category
 

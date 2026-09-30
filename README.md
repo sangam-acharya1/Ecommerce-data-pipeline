@@ -1,3 +1,4 @@
+
 # E-commerce Batch Data Pipeline
 
 An end-to-end batch data pipeline that transforms raw e-commerce order data into analytics-ready fact and dimension tables — built with PySpark, dbt, DuckDB, and Airflow, fully containerized with Docker.

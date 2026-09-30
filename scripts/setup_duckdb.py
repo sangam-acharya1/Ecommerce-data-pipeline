@@ -9,15 +9,21 @@ con.execute("""
 """)
 
 con.execute("""
+    CREATE OR REPLACE TABLE order_items_enriched AS
+    SELECT *
+    FROM read_parquet('/opt/airflow/data/gold/order_items_enriched/**/*.parquet')
+""")
+
+con.execute("""
     CREATE OR REPLACE TABLE customer_metrics AS
     SELECT *
-    FROM read_parquet('/opt/airflow/data/gold/enrich_customer_metrices/*.parquet')
+    FROM read_parquet('/opt/airflow/data/gold/customer_metrics/*.parquet')
 """)
 
 con.execute("""
     CREATE OR REPLACE TABLE seller_metrics AS
     SELECT *
-    FROM read_parquet('/opt/airflow/data/gold/enrich_seller_metrices/*.parquet')
+    FROM read_parquet('/opt/airflow/data/gold/seller_metrics/*.parquet')
 """)
 
 print("✅ Tables registered in DuckDB:")

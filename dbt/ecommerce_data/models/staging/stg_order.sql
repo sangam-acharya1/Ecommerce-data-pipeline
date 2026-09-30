@@ -11,8 +11,6 @@ renamed as (
         ---------- identifiers ----------
         order_id,
         customer_id,
-        seller_id,
-        product_id,
 
         ---------- order info ----------
         order_status,
@@ -21,14 +19,18 @@ renamed as (
         is_late,
 
         ---------- payment info ----------
-        payment_type,
-        payment_installments,
+        primary_payment_type            as payment_type,
+        primary_payment_installments    as payment_installments,
         payment_value,
+        payment_installment_records,
 
-        ---------- product info ----------
-        product_category_english        as product_category,
-        price                           as product_price,
-        freight_value,
+        ---------- order composition ----------
+        total_price,
+        total_freight_value             as freight_value,
+        item_count,
+        distinct_product_count,
+        distinct_seller_count,
+        is_multi_seller_order,
 
         ---------- timestamps ----------
         order_purchase_timestamp,
@@ -56,8 +58,7 @@ renamed as (
         end                                             as revenue_band,
 
         ---------- location ----------
-        customer_state,
-        seller_state
+        customer_state
 
     from source
 

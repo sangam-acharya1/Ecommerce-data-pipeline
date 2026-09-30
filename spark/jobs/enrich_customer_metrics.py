@@ -9,11 +9,19 @@ spark = SparkSession.builder \
 
 spark.sparkContext.setLogLevel("ERROR")
 
-orders = spark.read.parquet("/opt/airflow/data/gold/orders_enriched/")
+orders    = spark.read.parquet("/opt/airflow/data/gold/orders_enriched/")
+customers = spark.read.parquet("/opt/airflow/data/silver/customers/")
 
-customer_metrics = orders \
+# bring in customer_unique_id — the stable identity across orders
+orders_with_identity = orders.join(
+    customers.select("customer_id", "customer_unique_id"),
+    on="customer_id",
+    how="left"
+)
+
+customer_metrics = orders_with_identity \
     .filter(col("order_status") == "delivered") \
-    .groupBy("customer_id", "customer_state") \
+    .groupBy("customer_unique_id") \
     .agg(
         count("order_id").alias("total_orders"),
         spark_round(spark_sum("total_order_value"), 2).alias("total_spent"),

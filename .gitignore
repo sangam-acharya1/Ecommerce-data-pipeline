@@ -1,0 +1,10 @@
+*.duckdb
+logs/
+.env
+__pycache__/
+*.pyc
+data/silver/
+data/gold/
+dbt/ecommerce_data/target/
+dbt/ecommerce_data/dbt_packages/
+dbt/ecommerce_data/logs/
