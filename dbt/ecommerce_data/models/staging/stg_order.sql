@@ -11,6 +11,7 @@ renamed as (
         ---------- identifiers ----------
         order_id,
         customer_id,
+        customer_unique_id,
 
         ---------- order info ----------
         order_status,
